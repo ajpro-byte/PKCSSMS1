@@ -8710,7 +8710,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
     private void jComboBox2PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBox2PopupMenuWillBecomeInvisible
         // TODO add your handling code here:
        
-     //jComboBox2.removeAllItems();
+     jComboBox2.removeAllItems();
       category_drop();
     }//GEN-LAST:event_jComboBox2PopupMenuWillBecomeInvisible
 
