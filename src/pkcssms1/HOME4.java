@@ -2387,9 +2387,9 @@ try{
         });
         jScrollPane16.setViewportView(jTable2);
 
-        pnl_cat_search.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 200, 90));
+        pnl_cat_search.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 90));
 
-        pnl_cat_sel.add(pnl_cat_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 190, 90));
+        pnl_cat_sel.add(pnl_cat_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 260, 90));
 
         jButton17.setText("CANCEL");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -2472,7 +2472,7 @@ try{
 
         pnl_cat_sel.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 30));
 
-        Stocks.add(pnl_cat_sel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 310, 160));
+        Stocks.add(pnl_cat_sel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 310, 160));
 
         jLabel31.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel31.setText("ProductID");
@@ -2564,6 +2564,9 @@ try{
         p_cat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_catMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_catMouseEntered(evt);
             }
         });
         Stocks.add(p_cat, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 260, 30));
@@ -8631,7 +8634,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         jTextField4.setText("");
         p_mes_header.setText("Product Category");
          try{
-        String sql="SELECT ProductCategory FROM tbl_category  ";
+        String sql="SELECT DISTINCT ProductCategory FROM tbl_category  ";
         pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
         rs = pst.executeQuery();
         while(rs.next()){
@@ -8670,13 +8673,32 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
 
     private void jButton23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseClicked
         // TODO add your handling code here:
-        if(jCheckBox1.isSelected())  {
-        pnl_cat_sel.setVisible(false);
-        p_cat.setText(jTextField4.getText());
-        }else if(jCheckBox2.isSelected()){     
-        pnl_cat_sel.setVisible(false);
-        p_cat.setText((String) jComboBox1.getSelectedItem());
+        if (p_mes_header.getText().equals("Product Name")){
+                if(jCheckBox1.isSelected()){
+                pnl_cat_sel.setVisible(false);
+                p_name.setText(jTextField4.getText());
+                }else if(jCheckBox2.isSelected()){     
+                pnl_cat_sel.setVisible(false);
+                p_name.setText((String) jComboBox1.getSelectedItem());
+                }
+        }else if (p_mes_header.getText().equals("Product Description")){
+                if(jCheckBox1.isSelected()){
+                pnl_cat_sel.setVisible(false);
+                p_des.setText(jTextField4.getText());
+                }else if(jCheckBox2.isSelected()){     
+                pnl_cat_sel.setVisible(false);
+                p_des.setText((String) jComboBox1.getSelectedItem());
+                }
+        }else if (p_mes_header.getText().equals("Product Category")){
+                if(jCheckBox1.isSelected()){
+                pnl_cat_sel.setVisible(false);
+                p_cat.setText(jTextField4.getText());
+                }else if(jCheckBox2.isSelected()){     
+                pnl_cat_sel.setVisible(false);
+                p_cat.setText((String) jComboBox1.getSelectedItem());
+                }
         }
+        
     }//GEN-LAST:event_jButton23MouseClicked
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -8693,14 +8715,15 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         if (cat.equals("")){
         }else{
         try{
-        String sql1 = "INSERT INTO tbl_category(ProductName) VALUES (?)";
+        String sql1 = "INSERT INTO tbl_name VALUES (?)";
 
             pst = (PreparedStatement) conn.prepareStatement(sql1);
             pst.setString(1,cat);
             int add = pst.executeUpdate();
             if(add!=0){
                 jComboBox1.removeAllItems();
-                String sql="SELECT ProductName FROM tbl_category  ";
+                String sql="SELECT ProductName FROM tbl_name";
+                
                 pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
                 rs = pst.executeQuery();
                 while(rs.next()){
@@ -8709,7 +8732,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
                 }
             } else{}
         
-        }catch(SQLException e){}
+       }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
         }           
        
        }else if(p_mes_header.getText().equals("Product Description")){
@@ -8719,14 +8742,14 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         if (cat.equals("")){
         }else{
         try{
-        String sql1 = "INSERT INTO tbl_category(ProductDescription) VALUES (?)";
+        String sql1 = "INSERT INTO tbl_description VALUES (?)";
 
             pst = (PreparedStatement) conn.prepareStatement(sql1);
             pst.setString(1,cat);
             int add = pst.executeUpdate();
             if(add!=0){
                 jComboBox1.removeAllItems();
-                String sql="SELECT ProductDescription FROM tbl_category  ";
+                String sql="SELECT ProductDescription FROM tbl_description ";
                 pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
                 rs = pst.executeQuery();
                 while(rs.next()){
@@ -8735,7 +8758,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
                 }
             } else{}
         
-        }catch(SQLException e){}
+        }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
         }          
            
        
@@ -8747,14 +8770,14 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         if (cat.equals("")){
         }else{
         try{
-        String sql1 = "INSERT INTO tbl_category(ProductCategory) VALUES (?)";
+        String sql1 = "INSERT INTO tbl_category VALUES (?)";
 
             pst = (PreparedStatement) conn.prepareStatement(sql1);
             pst.setString(1,cat);
             int add = pst.executeUpdate();
             if(add!=0){
                 jComboBox1.removeAllItems();
-                String sql="SELECT ProductCategory FROM tbl_category  ";
+                String sql="SELECT ProductCategory FROM tbl_category ";
                 pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
                 rs = pst.executeQuery();
                 while(rs.next()){
@@ -8763,7 +8786,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
                 }
             } else{}
         
-        }catch(SQLException e){}
+        }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
         }
        
        }else{}
@@ -8777,7 +8800,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         pnl_cat_search.setVisible(false);
         } else{   
             pnl_cat_search.setVisible(true);
-        try {String sql = "Select DISTINCT ProductName from tbl_category where ProductName like ?";
+        try {String sql = "Select DISTINCT ProductName from tbl_name where ProductName like ?";
                 pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
                 pst.setString(1, "%" +jTextField4.getText()+ "%"); 
                 rs = pst.executeQuery();
@@ -8790,7 +8813,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         pnl_cat_search.setVisible(false);
         } else{   
             pnl_cat_search.setVisible(true);
-        try {String sql = "Select DISTINCT ProductDescription from tbl_category where ProductDescription like ?";
+        try {String sql = "Select DISTINCT ProductDescription from tbl_description where ProductDescription like ?";
                 pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
                 pst.setString(1, "%" +jTextField4.getText()+ "%"); 
                 rs = pst.executeQuery();
@@ -8834,9 +8857,72 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
 
     private void jLabel141MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel141MouseClicked
         // TODO add your handling code here:
+        
+        //Product Name
         try{
-        if (jCheckBox1.isSelected()){
-         pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("DELETE FROM tbl_category  WHERE ProducCategory = '" + jTextField4.getText() + "'");
+            if(p_mes_header.getText().equals("Product Name")){
+            
+                 if (jCheckBox1.isSelected()){
+         pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("DELETE FROM tbl_name WHERE ProductName = '" + jTextField4.getText() + "'");
+          pst.executeUpdate();
+          jTextField4.setText("");
+          jComboBox1.removeAllItems();
+                String sql="SELECT ProductName FROM tbl_name  ";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                String name =rs.getString("ProductName");
+                jComboBox1.addItem(name);
+                }
+    }else if (jCheckBox2.isSelected()){
+        pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("DELETE FROM tbl_name WHERE ProductName = '" + jComboBox1.getSelectedItem() + "'");
+          pst.executeUpdate();
+          jComboBox1.removeAllItems();
+                String sql="SELECT ProductName FROM tbl_name ";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                String name =rs.getString("ProductName");
+                jComboBox1.addItem(name);
+                }
+        }
+                
+                
+             //Product Desctiption
+            }else if(p_mes_header.getText().equals("Product Desctiption")){
+            
+                
+                 if (jCheckBox1.isSelected()){
+         pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("DELETE FROM tbl_description WHERE ProductDescription = '" + jTextField4.getText() + "'");
+          pst.executeUpdate();
+          jTextField4.setText("");
+          jComboBox1.removeAllItems();
+                String sql="SELECT ProductDesription FROM tbl_description  ";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                String name =rs.getString("ProductDescription");
+                jComboBox1.addItem(name);
+                }
+    }else if (jCheckBox2.isSelected()){
+        pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("DELETE FROM tbl_decription WHERE ProductDescription = '" + jComboBox1.getSelectedItem() + "'");
+          pst.executeUpdate();
+          jComboBox1.removeAllItems();
+                String sql="SELECT ProductDescription FROM tbl_decription  ";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                String name =rs.getString("ProductDescription");
+                jComboBox1.addItem(name);
+                }
+        }
+                
+                
+            //Product Category
+            }else if(p_mes_header.getText().equals("Product Category")){
+            
+                 if (jCheckBox1.isSelected()){
+         pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("DELETE FROM tbl_category WHERE ProductCategory = '" + jTextField4.getText() + "'");
           pst.executeUpdate();
           jTextField4.setText("");
           jComboBox1.removeAllItems();
@@ -8848,7 +8934,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
                 jComboBox1.addItem(name);
                 }
     }else if (jCheckBox2.isSelected()){
-        pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("DELETE FROM tbl_category  WHERE ProducCategory = '" + jComboBox1.getSelectedItem() + "'");
+        pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("DELETE FROM tbl_category WHERE ProductCategory = '" + jComboBox1.getSelectedItem() + "'");
           pst.executeUpdate();
           jComboBox1.removeAllItems();
                 String sql="SELECT ProductCategory FROM tbl_category  ";
@@ -8859,7 +8945,11 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
                 jComboBox1.addItem(name);
                 }
         }
-        }catch(SQLException e){}
+                
+            
+            }
+       
+        }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
     }//GEN-LAST:event_jLabel141MouseClicked
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -8906,7 +8996,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         jTextField4.setText("");
         p_mes_header.setText("Product Description");
          try{
-        String sql="SELECT ProductDescription FROM tbl_category  ";
+        String sql="SELECT DISTINCT ProductDescription FROM tbl_description  ";
         pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
         rs = pst.executeQuery();
         while(rs.next()){
@@ -8928,7 +9018,7 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         jTextField4.setText("");
         p_mes_header.setText("Product Name");
          try{
-        String sql="SELECT ProductName FROM tbl_category  ";
+     String sql="SELECT DISTINCT ProductName FROM tbl_name";
         pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
         rs = pst.executeQuery();
         while(rs.next()){
@@ -8939,6 +9029,10 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
     JOptionPane.showMessageDialog(null, e);
     }
     }//GEN-LAST:event_p_nameMouseClicked
+
+    private void p_catMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_catMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_catMouseEntered
 
     public void category_drop(){
         try{
