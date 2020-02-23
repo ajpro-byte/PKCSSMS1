@@ -90,6 +90,11 @@ conn = MysqlConnection.ConnectDB();
         AutoCompleteDecorator.decorate(jComboBox2);
     }
     
+    //pass data from lookup 
+    public HOME4(String para){
+    initComponents();
+    
+    }
     
      public void dashboard(){
         //product list
@@ -160,8 +165,7 @@ panel.setBackground(new java.awt.Color(255,255,255));
         d_supplier.setText(String.valueOf(row));
     }
 
-public void refresh_supplier()
-{
+public void refresh_supplier(){
 try{
         String sql="SELECT DISTINCT Supplier FROM tbl_supplier Where Status='" + "Active"+ "' ";
         pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
@@ -169,7 +173,7 @@ try{
         
         while(rs.next()){
         String name =rs.getString("Supplier");
-        p_sup.addItem(name);
+        jComboBox1.addItem(name);
         }
         }catch(Exception e){
     JOptionPane.showMessageDialog(null, e);
@@ -798,7 +802,8 @@ try{
          p_sale.setText("");
          p_image.setIcon(new ImageIcon(new ImageIcon("").getImage().getScaledInstance(p_image.getWidth(), p_image.getHeight(), Image.SCALE_DEFAULT)));
          p_image.setText("Select Image");
-          refresh_supplier();
+         refresh_supplier();
+         p_sup.setText("");
      }
    
  public void clear_supplier(){
@@ -855,6 +860,17 @@ try{
         jLabel107 = new javax.swing.JLabel();
         acctype = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        login = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtusername = new javax.swing.JTextField();
+        type1 = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        txtpassword = new javax.swing.JPasswordField();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
         HomeMenu = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -1029,6 +1045,7 @@ try{
         jCheckBox2 = new javax.swing.JCheckBox();
         jPanel36 = new javax.swing.JPanel();
         p_mes_header = new javax.swing.JLabel();
+        jLabel156 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         p_id = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
@@ -1056,12 +1073,9 @@ try{
         jPanel13 = new javax.swing.JPanel();
         p_image = new javax.swing.JLabel();
         id = new javax.swing.JLabel();
-        p_sup = new javax.swing.JComboBox<String>();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        p_cb = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
+        p_sup = new javax.swing.JTextField();
         Supplier = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         supp_search = new javax.swing.JTextField();
@@ -1090,6 +1104,9 @@ try{
         supp_contact = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_supplier = new javax.swing.JTable();
+        back = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel150 = new javax.swing.JLabel();
         Sales = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -1208,6 +1225,75 @@ try{
         jLabel151 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        tab_po = new javax.swing.JTabbedPane();
+        jPanel38 = new javax.swing.JPanel();
+        jLabel182 = new javax.swing.JLabel();
+        jPanel41 = new javax.swing.JPanel();
+        jLabel183 = new javax.swing.JLabel();
+        prnum = new javax.swing.JTextField();
+        jLabel184 = new javax.swing.JLabel();
+        prdate = new javax.swing.JTextField();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        prdes = new javax.swing.JTextArea();
+        prdeldate = new com.toedter.calendar.JDateChooser();
+        prvendorid = new javax.swing.JTextField();
+        prpayment = new javax.swing.JTextField();
+        jLabel185 = new javax.swing.JLabel();
+        jLabel186 = new javax.swing.JLabel();
+        jLabel187 = new javax.swing.JLabel();
+        jLabel188 = new javax.swing.JLabel();
+        jLabel189 = new javax.swing.JLabel();
+        pdemail = new javax.swing.JTextField();
+        prvendor = new javax.swing.JComboBox();
+        jLabel190 = new javax.swing.JLabel();
+        prauto = new javax.swing.JTextField();
+        praddress = new javax.swing.JTextField();
+        prcontact = new javax.swing.JTextField();
+        jLabel191 = new javax.swing.JLabel();
+        jLabel192 = new javax.swing.JLabel();
+        jLabel193 = new javax.swing.JLabel();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        prtable = new javax.swing.JTable();
+        jLabel194 = new javax.swing.JLabel();
+        jLabel195 = new javax.swing.JLabel();
+        jLabel196 = new javax.swing.JLabel();
+        jLabel197 = new javax.swing.JLabel();
+        prunit = new javax.swing.JTextField();
+        prcost = new javax.swing.JTextField();
+        jLabel198 = new javax.swing.JLabel();
+        jLabel199 = new javax.swing.JLabel();
+        pramount = new javax.swing.JTextField();
+        pradd = new javax.swing.JLabel();
+        prtotalcost = new javax.swing.JTextField();
+        jLabel201 = new javax.swing.JLabel();
+        jLabel202 = new javax.swing.JLabel();
+        prupodate = new javax.swing.JButton();
+        prclose = new javax.swing.JButton();
+        prvoid = new javax.swing.JButton();
+        pritemname = new javax.swing.JComboBox();
+        pritemdes = new javax.swing.JComboBox();
+        pritemcat = new javax.swing.JComboBox();
+        jPanel37 = new javax.swing.JPanel();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jLabel164 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
+        jPanel42 = new javax.swing.JPanel();
+        jLabel172 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel203 = new javax.swing.JLabel();
+        jPanel40 = new javax.swing.JPanel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel169 = new javax.swing.JLabel();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        jTable7 = new javax.swing.JTable();
+        jPanel43 = new javax.swing.JPanel();
+        jLabel173 = new javax.swing.JLabel();
         dashboard = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
         jLabel149 = new javax.swing.JLabel();
@@ -1250,7 +1336,7 @@ try{
         jLabel152 = new javax.swing.JLabel();
         jLabel178 = new javax.swing.JLabel();
         customer = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        cus_search = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel63 = new javax.swing.JLabel();
@@ -1284,17 +1370,8 @@ try{
         jLabel111 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         tbl_customer = new javax.swing.JTable();
-        login = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        txtusername = new javax.swing.JTextField();
-        type1 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
-        txtpassword = new javax.swing.JPasswordField();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
+        jLabel159 = new javax.swing.JLabel();
+        jLabel162 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         s_time = new javax.swing.JLabel();
@@ -1357,6 +1434,68 @@ try{
         getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 708, 1240, 30));
 
         jPanel1.setLayout(new java.awt.CardLayout());
+
+        login.setBackground(new java.awt.Color(255, 255, 255));
+        login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel2.setText("LOGIN");
+        login.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
+
+        txtusername.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtusername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtusernameKeyReleased(evt);
+            }
+        });
+        login.add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 350, 40));
+
+        type1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        type1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Admin", "User" }));
+        type1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type1ActionPerformed(evt);
+            }
+        });
+        login.add(type1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 350, 38));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        login.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 140, 40));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel3.setText("Forgot Password?");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        login.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, 27));
+        login.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
+        login.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
+
+        txtpassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtpasswordKeyReleased(evt);
+            }
+        });
+        login.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 350, 40));
+
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/password.png"))); // NOI18N
+        login.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, -1, -1));
+
+        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/login.png"))); // NOI18N
+        login.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, -1, -1));
+
+        jPanel1.add(login, "card2");
 
         HomeMenu.setMinimumSize(new java.awt.Dimension(1240, 460));
         HomeMenu.setName(""); // NOI18N
@@ -2399,6 +2538,15 @@ try{
         });
         pnl_cat_sel.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 80, -1));
 
+        jComboBox1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                jComboBox1PopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
         pnl_cat_sel.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 260, 30));
 
         jButton23.setText("OK");
@@ -2472,7 +2620,16 @@ try{
 
         pnl_cat_sel.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 30));
 
-        Stocks.add(pnl_cat_sel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 310, 160));
+        jLabel156.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/refresh (1).png"))); // NOI18N
+        jLabel156.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel156.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel156MouseClicked(evt);
+            }
+        });
+        pnl_cat_sel.add(jLabel156, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+
+        Stocks.add(pnl_cat_sel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 310, 160));
 
         jLabel31.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel31.setText("ProductID");
@@ -2528,6 +2685,7 @@ try{
         p_name.setBackground(new java.awt.Color(255, 255, 255));
         p_name.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         p_name.setText(" ");
+        p_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         p_name.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         p_name.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2544,6 +2702,7 @@ try{
         p_des.setBackground(new java.awt.Color(255, 255, 255));
         p_des.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         p_des.setText(" ");
+        p_des.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         p_des.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         p_des.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2560,6 +2719,7 @@ try{
         p_cat.setBackground(new java.awt.Color(255, 255, 255));
         p_cat.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         p_cat.setText(" ");
+        p_cat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         p_cat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         p_cat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -2682,25 +2842,6 @@ try{
         id.setForeground(new java.awt.Color(255, 255, 255));
         Stocks.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 250, 20));
 
-        Stocks.add(p_sup, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 260, 30));
-
-        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("+ New Supplier");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 20));
-
-        Stocks.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 110, 20));
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2713,13 +2854,6 @@ try{
         });
         Stocks.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 260, 10));
 
-        p_cb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p_cbActionPerformed(evt);
-            }
-        });
-        Stocks.add(p_cb, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, 30));
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 255));
         jLabel8.setText("View Supplier List");
@@ -2729,7 +2863,19 @@ try{
                 jLabel8MouseClicked(evt);
             }
         });
-        Stocks.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 100, -1));
+        Stocks.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 100, -1));
+
+        p_sup.setEditable(false);
+        p_sup.setBackground(new java.awt.Color(255, 255, 255));
+        p_sup.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        p_sup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        p_sup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        p_sup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_supMouseClicked(evt);
+            }
+        });
+        Stocks.add(p_sup, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 260, 30));
 
         Dashboard.add(Stocks, "card3");
 
@@ -2898,6 +3044,35 @@ try{
         jScrollPane1.setViewportView(tbl_supplier);
 
         Supplier.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 1180, 440));
+
+        back.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/return.png"))); // NOI18N
+        back.setText("BACK");
+        back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        Supplier.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 80, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/add.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        Supplier.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, -1, -1));
+
+        jLabel150.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/refresh.png"))); // NOI18N
+        jLabel150.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel150.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel150MouseClicked(evt);
+            }
+        });
+        Supplier.add(jLabel150, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, -1, -1));
 
         Dashboard.add(Supplier, "card9");
 
@@ -3697,6 +3872,308 @@ try{
 
         jTabbedPane1.addTab("  Damage Item  ", jPanel16);
 
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tab_po.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        tab_po.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tab_po.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab_poMouseClicked(evt);
+            }
+        });
+
+        jPanel38.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel38.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel182.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/more.png"))); // NOI18N
+        jLabel182.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel38.add(jLabel182, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jPanel41.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel183.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel183.setText("P.R. Number");
+        jPanel41.add(jLabel183, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -5, -1, 40));
+
+        prnum.setEditable(false);
+        prnum.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel41.add(prnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 160, 30));
+
+        jLabel184.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel184.setText("Date");
+        jPanel41.add(jLabel184, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, 30));
+
+        prdate.setEditable(false);
+        prdate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel41.add(prdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 160, 30));
+
+        jPanel38.add(jPanel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 500, 30));
+
+        prdes.setColumns(20);
+        prdes.setRows(5);
+        jScrollPane18.setViewportView(prdes);
+
+        jPanel38.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 230, 90));
+        jPanel38.add(prdeldate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 230, 30));
+
+        prvendorid.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel38.add(prvendorid, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 230, 30));
+
+        prpayment.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel38.add(prpayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 230, 30));
+
+        jLabel185.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel185.setText("Payment Method");
+        jPanel38.add(jLabel185, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, 30));
+
+        jLabel186.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel186.setText("Autorization");
+        jPanel38.add(jLabel186, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, 30));
+
+        jLabel187.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel187.setText("Delivery Date ");
+        jPanel38.add(jLabel187, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 30));
+
+        jLabel188.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel188.setText("Description");
+        jPanel38.add(jLabel188, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, 30));
+
+        jLabel189.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel189.setText("Email");
+        jPanel38.add(jLabel189, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, -1, 30));
+
+        pdemail.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel38.add(pdemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 230, 30));
+
+        jPanel38.add(prvendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, 230, 30));
+
+        jLabel190.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel190.setText("Vendor ID");
+        jPanel38.add(jLabel190, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, -1, 30));
+
+        prauto.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel38.add(prauto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 230, 30));
+
+        praddress.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel38.add(praddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 300, 30));
+
+        prcontact.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jPanel38.add(prcontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 230, 30));
+
+        jLabel191.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel191.setText("Vendor");
+        jPanel38.add(jLabel191, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, 30));
+
+        jLabel192.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel192.setText("Address");
+        jPanel38.add(jLabel192, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, 30));
+
+        jLabel193.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel193.setText("Contact");
+        jPanel38.add(jLabel193, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, -1, 30));
+
+        prtable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane19.setViewportView(prtable);
+
+        jPanel38.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 1060, 120));
+
+        jLabel194.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel194.setText("ITem Name");
+        jPanel38.add(jLabel194, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 20));
+
+        jLabel195.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel195.setText("Item Description");
+        jPanel38.add(jLabel195, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, 20));
+
+        jLabel196.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel196.setText("Item Category");
+        jPanel38.add(jLabel196, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, 20));
+
+        jLabel197.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel197.setText("Units");
+        jPanel38.add(jLabel197, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, -1, 20));
+
+        prunit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel38.add(prunit, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 90, 30));
+
+        prcost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel38.add(prcost, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 150, 30));
+
+        jLabel198.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel198.setText("Unit Cost");
+        jPanel38.add(jLabel198, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 250, -1, 20));
+
+        jLabel199.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel199.setText("Amount");
+        jPanel38.add(jLabel199, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 250, -1, 20));
+
+        pramount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel38.add(pramount, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 270, 180, 30));
+
+        pradd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pradd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkcssms1/add (1).png"))); // NOI18N
+        pradd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel38.add(pradd, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 270, 30, 30));
+
+        prtotalcost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        prtotalcost.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel38.add(prtotalcost, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 430, 280, 30));
+
+        jLabel201.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel201.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel201.setText("Total Cost:");
+        jLabel201.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel38.add(jLabel201, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 430, 110, 30));
+
+        jLabel202.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel202.setForeground(new java.awt.Color(0, 51, 204));
+        jLabel202.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel202.setText("View supplier list");
+        jLabel202.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel38.add(jLabel202, new org.netbeans.lib.awtextra.AbsoluteConstraints(816, 50, 100, -1));
+
+        prupodate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        prupodate.setText("UPDATE");
+        jPanel38.add(prupodate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 140, 30));
+
+        prclose.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        prclose.setText("Close Order");
+        jPanel38.add(prclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(519, 430, 140, 30));
+
+        prvoid.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        prvoid.setText("VOID");
+        jPanel38.add(prvoid, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 140, 30));
+
+        jPanel38.add(pritemname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 210, 30));
+
+        jPanel38.add(pritemdes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 200, 30));
+
+        jPanel38.add(pritemcat, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 200, 30));
+
+        tab_po.addTab("Purchase Requisition", jPanel38);
+
+        jPanel37.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel37.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel37.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane20.setViewportView(jTable5);
+
+        jPanel37.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 1060, 230));
+
+        jLabel164.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/search-engine(1).png"))); // NOI18N
+        jPanel37.add(jLabel164, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
+        jPanel37.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 220, 30));
+        jPanel37.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 210, 30));
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane21.setViewportView(jTable6);
+
+        jPanel37.add(jScrollPane21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 1060, 180));
+
+        jPanel42.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel172.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel172.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel172.setText("P.O Number");
+        jPanel42.add(jLabel172, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
+
+        jTextField7.setEditable(false);
+        jTextField7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jPanel42.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 180, 30));
+
+        jPanel37.add(jPanel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 270, 30));
+
+        jLabel203.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/more.png"))); // NOI18N
+        jPanel37.add(jLabel203, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, -1, -1));
+
+        tab_po.addTab("Requisition list", jPanel37);
+
+        jPanel40.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel40.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel40.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 220, 30));
+
+        jLabel169.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/search-engine(1).png"))); // NOI18N
+        jPanel40.add(jLabel169, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
+        jPanel40.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 210, 30));
+
+        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane22.setViewportView(jTable7);
+
+        jPanel40.add(jScrollPane22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 1050, 300));
+
+        jLabel173.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel173.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel173.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/printer(1).png"))); // NOI18N
+        jLabel173.setText(" PRINT P.O.");
+
+        javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
+        jPanel43.setLayout(jPanel43Layout);
+        jPanel43Layout.setHorizontalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel43Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel173, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel43Layout.setVerticalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel173, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel40.add(jPanel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 140, 30));
+
+        tab_po.addTab("P.O Approved", jPanel40);
+
+        jPanel3.add(tab_po, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, 480));
+
+        jTabbedPane1.addTab("  Purchase Order  ", jPanel3);
+
         Transactions.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 510));
 
         Dashboard.add(Transactions, "card4");
@@ -3800,6 +4277,12 @@ try{
         jLabel158.setBackground(new java.awt.Color(0, 102, 0));
         jLabel158.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel158.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/users-group.png"))); // NOI18N
+        jLabel158.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel158.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel158MouseClicked(evt);
+            }
+        });
         jPanel29.add(jLabel158, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 80));
 
         jPanel28.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 100));
@@ -3961,8 +4444,13 @@ try{
         customer.setBackground(new java.awt.Color(255, 255, 255));
         customer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        customer.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 420, 30));
+        cus_search.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cus_search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cus_searchKeyReleased(evt);
+            }
+        });
+        customer.add(cus_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 420, 30));
 
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.setText("Deactivate");
@@ -3997,7 +4485,7 @@ try{
 
         jLabel75.setBackground(new java.awt.Color(255, 255, 255));
         jLabel75.setForeground(new java.awt.Color(255, 255, 255));
-        customer.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 110, 17));
+        customer.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 110, 17));
 
         pnl_cus_update.setBackground(new java.awt.Color(247, 247, 247));
         pnl_cus_update.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -4142,73 +4630,29 @@ try{
 
         customer.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 1220, 460));
 
+        jLabel159.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/refresh.png"))); // NOI18N
+        jLabel159.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel159.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel159MouseClicked(evt);
+            }
+        });
+        customer.add(jLabel159, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 50));
+
+        jLabel162.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/add.png"))); // NOI18N
+        jLabel162.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel162.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel162MouseClicked(evt);
+            }
+        });
+        customer.add(jLabel162, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, -1, 50));
+
         Dashboard.add(customer, "card11");
 
         HomeMenu.add(Dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1240, 520));
 
         jPanel1.add(HomeMenu, "card3");
-
-        login.setBackground(new java.awt.Color(255, 255, 255));
-        login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setText("LOGIN");
-        login.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 200, -1, -1));
-
-        txtusername.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtusername.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtusernameKeyReleased(evt);
-            }
-        });
-        login.add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 350, 40));
-
-        type1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        type1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Admin", "User" }));
-        type1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                type1ActionPerformed(evt);
-            }
-        });
-        login.add(type1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 350, 38));
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        login.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 140, 40));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel3.setText("Forgot Password?");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-        login.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, 27));
-        login.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
-        login.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
-
-        txtpassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtpassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtpasswordKeyReleased(evt);
-            }
-        });
-        login.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 350, 40));
-
-        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/password.png"))); // NOI18N
-        login.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, -1, -1));
-
-        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu_icon/login.png"))); // NOI18N
-        login.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, -1, -1));
-
-        jPanel1.add(login, "card2");
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, 596));
 
@@ -4377,7 +4821,6 @@ try{
         refresh_item();
           item_clear();
         empCount();
-        p_sup.removeAllItems();
         jLabel94.setText("");
     }//GEN-LAST:event_pnl_stockMouseClicked
 
@@ -5166,7 +5609,7 @@ try{
                             pst.setString(6,p_org.getText());
                             pst.setString(7,p_val.getText());
                             pst.setString(8,p_sale.getText());
-                            pst.setString(9,(String)p_sup.getSelectedItem());
+                            pst.setString(9,p_sup.getText());
 
                             int add = pst.executeUpdate();
                             if(add!=0){
@@ -5192,7 +5635,7 @@ try{
                             pst.setString(6,p_org.getText());
                             pst.setString(7,p_val.getText());
                             pst.setString(8,p_sale.getText());
-                            pst.setString(9,(String)p_sup.getSelectedItem());
+                            pst.setString(9,p_sup.getText());
 
                             int add = pst.executeUpdate();
                             if(add!=0){
@@ -5226,7 +5669,7 @@ try{
                                 pst.setString(7,p_val.getText());
                                 pst.setString(8,p_sale.getText());
                                 pst.setBlob(9,img); 
-                                pst.setString(10,(String)p_sup.getSelectedItem());
+                                pst.setString(10,p_sup.getText());
                                 
                                 int add = pst.executeUpdate();
                                 if(add!=0){
@@ -5253,7 +5696,7 @@ try{
                                 pst.setString(7,p_val.getText());
                                 pst.setString(8,p_sale.getText());
                                 pst.setBlob(9,img);
-                                pst.setString(10,(String)p_sup.getSelectedItem());
+                                pst.setString(10,p_sup.getText());
                                 int add = pst.executeUpdate();
                                 if(add!=0){
                                     refresh_item();
@@ -5281,22 +5724,13 @@ try{
                 }
             }
         }else if(p_add.getText().equals("Update")){
-            if (p_cb.isSelected()){
-           
-                JFrame frame = new JFrame();
-            String[] options = new String[4];
-            options[0] = new String("Continue");
-            options[1] = new String("Cancel");
-            int p = JOptionPane.showOptionDialog(frame.getContentPane(),"Supplier is selected to Update! Do you want to continue?","Warning", 0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
-            if(p==0){
-                
                 if (acctype.getText().equals("User")){
                 JOptionPane.showMessageDialog(null,"Invalid User Field!!!");
             }else{
                 if (p_image.getText().equals("Select Image")){
                     try {
                         pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("UPDATE tbl_items SET  ProductID=?, ProductName=?, ProductDescription=?, ProductCategory=?, "
-                            + "Quantity=?, OriginalPrice=?, ValuesSRP=?, Sale=? ,Supplier=?WHERE ProductID='" + p_id.getText() + "'");
+                            + "Quantity=?, OriginalPrice=?, ValuesSRP=?, Sale=? ,Supplier=? WHERE ProductID='" + p_id.getText() + "'");
 
                         pst.setString(1, p_id.getText());
                         pst.setString(2, p_name.getText());
@@ -5306,7 +5740,7 @@ try{
                         pst.setString(6, p_org.getText());
                         pst.setString(7, p_val.getText());
                         pst.setString(8, p_sale.getText());
-                        pst.setString(9,(String)p_sup.getSelectedItem());
+                        pst.setString(9,p_sup.getText());
 
                         int update = pst.executeUpdate();
                         if (update != 0) {
@@ -5315,7 +5749,6 @@ try{
                             
                             JOptionPane.showMessageDialog(null,"Item Updated");
                             p_add.setText("Add");
-                            p_cb.setVisible(false);
                         }
                     } catch(SQLException ex){
                         JOptionPane.showMessageDialog(null, ex);
@@ -5334,7 +5767,7 @@ try{
                         pst.setString(7, p_val.getText());
                         pst.setString(8, p_sale.getText());
                         pst.setBlob(9, img);
-                        pst.setString(10,(String)p_sup.getSelectedItem());
+                        pst.setString(10,p_sup.getText());
                         int update = pst.executeUpdate();
                         if (update != 0) {
                             refresh_item();
@@ -5350,85 +5783,14 @@ try{
                     }
 
                 }
-            }
-                
-            }else if(p==1){
+            } 
             
-                frame.dispose();
-                
-            }
-                
-            }else{
-            
-            if (acctype.getText().equals("User")){
-                JOptionPane.showMessageDialog(null,"Invalid User Field!!!");
-            }else{
-                if (p_image.getText().equals("Select Image")){
-                    try {
-                        pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("UPDATE tbl_items SET  ProductID=?, ProductName=?, ProductDescription=?, ProductCategory=?, "
-                            + "Quantity=?, OriginalPrice=?, ValuesSRP=?, Sale=? ,Supplier=?WHERE ProductID='" + p_id.getText() + "'");
-
-                        pst.setString(1, p_id.getText());
-                        pst.setString(2, p_name.getText());
-                        pst.setString(3, p_des.getText());
-                        pst.setString(4, p_cat.getText());
-                        pst.setString(5, p_quan.getText());
-                        pst.setString(6, p_org.getText());
-                        pst.setString(7, p_val.getText());
-                        pst.setString(8, p_sale.getText());
-                        pst.setString(9,(String)p_sup.getSelectedItem());
-
-                        int update = pst.executeUpdate();
-                        if (update != 0) {
-                            refresh_item();
-                            item_clear();
-                            
-                            JOptionPane.showMessageDialog(null,"Item Updated");
-                            p_add.setText("Add");
-                            p_cb.setVisible(false);
-                        }
-                    } catch(SQLException ex){
-                        JOptionPane.showMessageDialog(null, ex);
-                    }
-                }else{
-                    try {
-                        pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("UPDATE tbl_items SET  ProductID=?, ProductName=?, ProductDescription=?, ProductCategory=?, "
-                            + "Quantity=?, OriginalPrice=?, ValuesSRP=?, Sale=? ,Image=?,Supplier=? WHERE ProductID='" + p_id.getText() + "'");
-                        InputStream img = new FileInputStream(new File(imgpath));
-                        pst.setString(1, p_id.getText());
-                        pst.setString(2, p_name.getText());
-                        pst.setString(3, p_des.getText());
-                        pst.setString(4, p_cat.getText());
-                        pst.setString(5, p_quan.getText());
-                        pst.setString(6, p_org.getText());
-                        pst.setString(7, p_val.getText());
-                        pst.setString(8, p_sale.getText());
-                        pst.setBlob(9, img);
-                        pst.setString(10,(String)p_sup.getSelectedItem());
-                        int update = pst.executeUpdate();
-                        if (update != 0) {
-                            refresh_item();
-                            item_clear();
-                            
-                            JOptionPane.showMessageDialog(null,"Item Updated");
-                            p_add.setText("Add");
-                        }
-                    } catch(SQLException ex){
-                        JOptionPane.showMessageDialog(null, ex);
-                    }               catch (FileNotFoundException ex) {
-                        Logger.getLogger(HOME.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                }
-            }
-        }
         }
     }//GEN-LAST:event_p_addActionPerformed
 
     private void p_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_clearActionPerformed
         // TODO add your handling code here:
         item_clear();
-        p_cb.setVisible(false);
     }//GEN-LAST:event_p_clearActionPerformed
 
     private void p_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_imageMouseClicked
@@ -6183,11 +6545,9 @@ try{
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, ex);
                 }
-
+ 
             }else if (p==3){
-
-                frame.dispose();
-
+             frame.dispose();
             }
 
         }else if (jLabel94.getText().equals("")){
@@ -6208,10 +6568,11 @@ try{
                   }catch(SQLException e){}
                   
             JFrame frame = new JFrame();
-            String[] options = new String[3];
+            String[] options = new String[4];
             options[0] = new String("Update");
             options[1] = new String("Delete");
             options[2] = new String("Dump Item");
+            options[3] = new String("Proceed to Sales");
             int p = JOptionPane.showOptionDialog(frame.getContentPane(),"Select Option","Item", 0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
             if(p==0){
                 int z = tbl_item.getSelectedRow();
@@ -6231,8 +6592,9 @@ try{
                     if (rs.next()){
                         byte[] img = rs.getBytes("Image");
                         String supp = rs.getString("Supplier");
+                        p_sup.setText(supp);
                         String cat = rs.getString("ProductCategory");
-                        p_name.setText(cat);
+                        p_cat.setText(cat);
                         String des = rs.getString("ProductDescription");
                         p_des.setText(des);
                         String pname = rs.getString("ProductName");
@@ -6245,8 +6607,6 @@ try{
                         p_image.setIcon(newImage);
                         
                         // p_sup.removeAllItems();
-                        p_sup.setSelectedItem(supp);
-                        p_cb.setVisible(true);
                         p_image.setText("");
 
                     }else{
@@ -6258,10 +6618,14 @@ try{
                     pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_items WHERE ProductID = '" + p_id.getText() + "'");
                     rs = (ResultSet) pst.executeQuery();
                     if (rs.next()){
-                        String supp = rs.getString("Supplier"); 
-                        //p_sup.removeAllItems();
-                        p_sup.setSelectedItem(supp);
-                        p_cb.setVisible(true);
+                        String supp = rs.getString("Supplier");
+                        p_sup.setText(supp);
+                        String cat = rs.getString("ProductCategory");
+                        p_cat.setText(cat);
+                        String des = rs.getString("ProductDescription");
+                        p_des.setText(des);
+                        String pname = rs.getString("ProductName");
+                        p_name.setText(pname);
                     } 
                         }catch (Exception ex) {
                     JOptionPane.showMessageDialog(null,ex);
@@ -6273,6 +6637,24 @@ try{
                     JOptionPane.showMessageDialog(null,"No Image Data!!");
                      p_image.setText(null);
                         p_image.setText("Select Image");
+                        
+                         try{
+                    pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_items WHERE ProductID = '" + p_id.getText() + "'");
+                    rs = (ResultSet) pst.executeQuery();
+                    if (rs.next()){
+                        String supp = rs.getString("Supplier");
+                        p_sup.setText(supp);
+                        String cat = rs.getString("ProductCategory");
+                        p_cat.setText(cat);
+                        String des = rs.getString("ProductDescription");
+                        p_des.setText(des);
+                        String pname = rs.getString("ProductName");
+                        p_name.setText(pname);
+                    } 
+                        }catch (Exception exq) {
+                    JOptionPane.showMessageDialog(null,exq);
+                }
+                        
                 }
                 p_image.setText("Select Image");
                 p_add.setText("Update");
@@ -6284,7 +6666,7 @@ try{
                 Logs.setVisible(false);
                 Accounts.setVisible(false);
                 refresh_supplier();
-
+                pnl_cat_sel.setVisible(false);
             }else if (p==1){
                 int z = tbl_item.getSelectedRow();
                 TableModel model = tbl_item.getModel();
@@ -6320,6 +6702,7 @@ try{
              int z = tbl_item.getSelectedRow();
                 DefaultTableModel model = (DefaultTableModel) tbl_item.getModel();
                String PrdID = model.getValueAt(z, 0).toString();
+               s_barcode.setText(PrdID);
                //String qty = model.getValueAt(z, 4).toString();
               try{
                pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_items WHERE ProductID = '" + PrdID + "'");
@@ -6408,6 +6791,140 @@ try{
                         JOptionPane.showMessageDialog(null, ex);
                     }
                 
+            }else if (p==3){
+            int z = tbl_item.getSelectedRow();
+                DefaultTableModel model = (DefaultTableModel) tbl_item.getModel();
+                String item_id = (model.getValueAt(z, 0).toString());
+                s_barcode.setText(item_id);
+                if(jLabel59.getText().equals("Regular")){
+        
+            try {
+
+            pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_items WHERE ProductID = '" +  item_id + "'");
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add3 = rs.getString("ProductName");
+                s_prd.setText(add3);
+                String add5 = rs.getString("ProductDescription");
+                s_des.setText(add5);
+                String add7 = rs.getString("Quantity");
+                s_stck.setText(add7);
+                String add8 = rs.getString("OriginalPrice");
+                s_price.setText(add8);  
+                
+            }else{
+                // s_barcode.setText("");
+                s_prd.setText("");
+                s_des.setText("");
+                s_price.setText("");
+                s_qty.setText("");
+                s_total.setText("");
+                s_stck.setText("");
+                s_add.setEnabled(false);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showConfirmDialog(null, ex);
+        }
+            
+        }else if(jLabel59.getText().equals("Walk In")){
+        
+        try {
+
+            pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_items WHERE ProductID = '" +  item_id + "'");
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add3 = rs.getString("ProductName");
+                s_prd.setText(add3);
+                String add5 = rs.getString("ProductDescription");
+                s_des.setText(add5);
+                String add7 = rs.getString("Quantity");
+                s_stck.setText(add7);
+                String add8 = rs.getString("ValuesSRP");
+                s_price.setText(add8); 
+            }else{
+                // s_barcode.setText("");
+                s_prd.setText("");
+                s_des.setText("");
+                s_price.setText("");
+                s_qty.setText("");
+                s_total.setText("");
+                s_stck.setText("");
+                s_add.setEnabled(false);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showConfirmDialog(null, ex);
+        }
+        
+        }else{
+         try {
+
+            pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_items WHERE ProductID = '" +  item_id + "'");
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add3 = rs.getString("ProductName");
+                s_prd.setText(add3);
+                String add5 = rs.getString("ProductDescription");
+                s_des.setText(add5);
+                String add7 = rs.getString("Quantity");
+                s_stck.setText(add7);
+                String add8 = rs.getString("ValuesSRP");
+                s_price.setText(add8); 
+            }else{
+                // s_barcode.setText("");
+                s_prd.setText("");
+                s_des.setText("");
+                s_price.setText("");
+                s_qty.setText("");
+                s_total.setText("");
+                s_stck.setText("");
+                s_add.setEnabled(false);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showConfirmDialog(null, ex);
+        }
+        
+        }
+
+                
+                resetColor_manage(pnl_stock);
+        setColor_manage(pnl_sales);
+        resetColor_manage(pnl_transactions);
+        resetColor_manage(pnl_report);
+        resetColor_manage(pnl_accounts);
+        resetColor_manage(pnl_logs);
+        resetColor_manage(pnl_logout);
+        resetColor_manage(pnl_dashboard);
+                
+                 login.setVisible(false);
+        Sales.setVisible(true);
+        Stocks.setVisible(false);
+        ItemList.setVisible(false);
+        Transactions.setVisible(false);
+        Logs.setVisible(false);
+        Accounts.setVisible(false);
+        Report.setVisible(false);
+        addaccount.setVisible(false);
+        accountlist.setVisible(false);
+        Supplier.setVisible(false);
+        customer.setVisible(false);
+        dashboard.setVisible(false);
+        
+        pnl_cus1.setVisible(false);
+//        jLabel60.setVisible(true);
+//         jLabel59.setVisible(true);
+        s_add.setEnabled(false);
+        refresh_cashier();
+        totprice.setText(Double.toString(total_bprice()));
+        totqty.setText(Integer.toString(total_bqty()));
+//        jButton5.setEnabled(true);
+//        s_cash.setText("");
+//        s_change.setText("");
+//        
+//         jLabel127.setVisible(false);
+//         jLabel105.setVisible(false);
+                
+                
+            
             }
             
             }
@@ -6493,7 +7010,7 @@ try{
 
     private void st_prdnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_st_prdnewActionPerformed
         // TODO add your handling code here:
-        p_sup.removeAllItems();
+       
         //refresh_supplier();
         login.setVisible(false);
         Sales.setVisible(false);
@@ -6503,7 +7020,6 @@ try{
         Logs.setVisible(false);
         Accounts.setVisible(false);
         Report.setVisible(false);
-        p_cb.setVisible(false);
         item_clear();
         p_id.setText("[Click To Auto Generate ID]");
         p_add.setText("Add");
@@ -6630,19 +7146,6 @@ try{
         }
           }
     }//GEN-LAST:event_tbl_itemKeyReleased
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-        if(jLabel1.getText().equals("+ New Supplier")){
-            jLabel1.setText("Refresh");
-         new Supplier().setVisible(true);
-        }else{
-            p_sup.removeAllItems();
-            refresh_supplier();
-        jLabel1.setText("+ New Supplier");
-        }
-       
-    }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -6803,28 +7306,6 @@ try{
             }
 
     }//GEN-LAST:event_supp_searchKeyReleased
-
-    private void p_cbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_cbActionPerformed
-        // TODO add your handling code here:
-        if (p_cb.isSelected()){
-        refresh_supplier();
-        }else{       
-                try{
-                    
-                     pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_items WHERE ProductID= '" + p_id.getText() + "' ");
-            rs = pst.executeQuery();
-            if (rs.next()) {
-                String add3 = rs.getString("Supplier");
-                p_sup.removeAllItems();
-                p_sup.setSelectedItem(add3);
-            }
-         } catch (SQLException ex) {
-                JOptionPane.showConfirmDialog(null, ex);
-            }
-        
-        }
-         
-    }//GEN-LAST:event_p_cbActionPerformed
 
     private void jLabel57MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel57MouseClicked
         // TODO add your handling code here:
@@ -7361,37 +7842,58 @@ try{
                      pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_sales WHERE ProductID = '" + ProdID + "' and Date ='"+date+"' and Time = '" + time + "'");
             rs = pst.executeQuery();
             if (rs.next()) {
-                String st_price = rs.getString("TotalPrice");
-                     int q1  = Integer.parseInt(res);
-                    int item,pur,total ,sales_price,totalprice,salest_price; 
+                
+                     //int q1  = Integer.parseInt(res);
+                    int item,pur,total ,sales_price,totalprice,salest_price,tp_tamount; 
                 item = Integer.parseInt(itemqty);
                     pur = Integer.parseInt(res);
                     sales_price = Integer.parseInt(price);
-                    salest_price = Integer.parseInt(st_price);
+                    //salest_price = Integer.parseInt(st_price);
+                   
+                    tp_tamount = Integer.parseInt(totalamount);
+                     JOptionPane.showMessageDialog(null,"sales Selection enterd");
                 total = item + pur;
-                totalprice = (pur*sales_price)-salest_price;
+               //totalprice = (pur*sales_price)-salest_price;
+                //calculation of enterd quantity for sales and purchase
+                //item qty - item
+                //customer purchase get pur1   sales_price  tp_tamount
+                //sales st_price st_qty
+                //inputed qty q
+                JOptionPane.showMessageDialog(null,"for calculations");  
+                //for items
+                int total_purchase_addition = q + item;
+                //customer purchase 
+                int qty_total_update = pur1 - q;//total deduction of qty
+                int tprice_deducted = sales_price * q;// total of price deduct
+                int tprice_tdeduct =  tp_tamount - tprice_deducted;//total of new updated amount
+                
                  pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("UPDATE tbl_items SET  Quantity=? WHERE ProductID='" + ProdID + "'");
-
-                    pst.setInt(1, total);
+                 
+                 String value_of_item_update = String.valueOf( total_purchase_addition);
+                  JOptionPane.showMessageDialog(null,"sales items update enterd string value");   
+                    pst.setString(1, value_of_item_update);
                     int update = pst.executeUpdate();
                     if (update != 0) {
+                        
+                          JOptionPane.showMessageDialog(null,"sales items update enterd");
+                        
                         int a  = Integer.parseInt(res);
                         int b = Integer.parseInt(cusqty);
-                        
-                int total1 = b - a;
+                 int total1 = b - a;
                  pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("UPDATE tbl_customer_purchase SET  Quantity=?,TotalAmount WHERE ProductID='" + ProdID + "' and Date='" + date + "' and Time='" + time + "'");
-                 
-                    pst.setInt(1, total1);
-                    pst.setInt(2, totalprice);
+                    String value_of_cusqty_update = String.valueOf(qty_total_update);
+                    pst.setString(1,value_of_cusqty_update);
+                    String value_of_custprice_update = String.valueOf(tprice_tdeduct);
+                    pst.setString(2, value_of_custprice_update);
                     int update1 = pst.executeUpdate();
                     if (update1 != 0) {
-                        
+                        JOptionPane.showMessageDialog(null,"sales customer purchase update enterd");
                         pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("UPDATE tbl_sales SET  Quantity=?,TotalPrice WHERE ProductID='" + ProdID + "' and Date='" + date + "' and Time='" + time + "'");
-                        pst.setInt(1, total1);
-                        pst.setInt(2, totalprice);
+                        pst.setString(1,value_of_cusqty_update);
+                        pst.setString(2, value_of_custprice_update);
                         int next = pst.executeUpdate();
                         if (next!=0){
-                         
+                         JOptionPane.showMessageDialog(null,"sales sales update enterd");
                         String sql= "INSERT INTO tbl_return_history VALUES  (?,?,?,?,?,?,?,?,?,?,?,?)";
                                 pst = (PreparedStatement) conn.prepareStatement(sql);
                                 String reason = JOptionPane.showInputDialog(this,"State Reason");
@@ -7401,8 +7903,8 @@ try{
                                 pst.setString(4, prodname);
                                 pst.setString(5, proddes);
                                 pst.setString(6, price);
-                                pst.setString(7, res);
-                                pst.setString(8, totalamount);
+                                pst.setString(7,value_of_cusqty_update);
+                                pst.setString(8, value_of_custprice_update);
                                 pst.setString(9, s_date.getText());
                                 pst.setString(10, s_time.getText());
                                 pst.setString(11, staff);
@@ -7419,8 +7921,8 @@ try{
                                 pst.setString(4, prodname);
                                 pst.setString(5, proddes);
                                 pst.setString(6, price);
-                                pst.setString(7, res);
-                                pst.setString(8, totalamount);
+                                pst.setString(7,value_of_cusqty_update);
+                                pst.setString(8, value_of_custprice_update);
                                 pst.setString(9, s_date.getText());
                                 pst.setString(10, s_time.getText());
                                 pst.setString(11, staff);
@@ -7516,6 +8018,7 @@ try{
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         // TODO add your handling code here:
        refresh_dump_item();
+       
         
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
@@ -8665,8 +9168,8 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         accountlist.setVisible(false);
         Supplier.setVisible(true);
         supplierCount();
-        
          pnl_supp_update.setVisible(false);
+         back.setVisible(true);
         }
         
     }//GEN-LAST:event_jLabel8MouseClicked
@@ -8696,6 +9199,14 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
                 }else if(jCheckBox2.isSelected()){     
                 pnl_cat_sel.setVisible(false);
                 p_cat.setText((String) jComboBox1.getSelectedItem());
+                }
+        }else{
+            if(jCheckBox1.isSelected()){
+                pnl_cat_sel.setVisible(false);
+                p_sup.setText(jTextField4.getText());
+                }else if(jCheckBox2.isSelected()){     
+                pnl_cat_sel.setVisible(false);
+                p_sup.setText((String) jComboBox1.getSelectedItem());
                 }
         }
         
@@ -8789,7 +9300,9 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
         }
        
-       }else{}
+       }else{
+         new Supplier().setVisible(true);
+       }
        
     }//GEN-LAST:event_jLabel9MouseClicked
 
@@ -8833,7 +9346,20 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
                 rs = pst.executeQuery();
                 jTable2.setModel(DbUtils.resultSetToTableModel(rs));
             } catch (SQLException ex) {JOptionPane.showConfirmDialog(null, ex);}}
-        }else{}
+        }else{
+        
+       if (jTextField4.getText().equals("")){
+        pnl_cat_search.setVisible(false);
+        } else{   
+            pnl_cat_search.setVisible(true);
+        try {String sql = "Select DISTINCT Supplier from tbl_supplier where Supplier like ?";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                pst.setString(1, "%" +jTextField4.getText()+ "%"); 
+                rs = pst.executeQuery();
+                jTable2.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {JOptionPane.showConfirmDialog(null, ex);}}        
+        
+        }
         
     }//GEN-LAST:event_jTextField4KeyReleased
 
@@ -8947,6 +9473,8 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         }
                 
             
+            }else{
+            JOptionPane.showMessageDialog(null,"Supplier could not be deleted, but it can be set as disabled.");
             }
        
         }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
@@ -9034,6 +9562,156 @@ if (d_id.getText().equals("") && jTextField6.getText().equals("")){
         // TODO add your handling code here:
     }//GEN-LAST:event_p_catMouseEntered
 
+    private void p_supMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_supMouseClicked
+        // TODO add your handling code here:
+         pnl_cat_sel.setVisible(true);
+        jComboBox1.removeAllItems();
+        pnl_cat_search.setVisible(false);
+        jCheckBox2.setSelected(true);
+        jTextField4.setEditable(false);
+        jTextField4.setText("");
+        p_mes_header.setText("Supplier"); 
+        refresh_supplier();
+    }//GEN-LAST:event_p_supMouseClicked
+
+    private void jComboBox1PopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBox1PopupMenuWillBecomeInvisible
+ 
+    }//GEN-LAST:event_jComboBox1PopupMenuWillBecomeInvisible
+
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        login.setVisible(false);
+        Sales.setVisible(false);
+        Stocks.setVisible(true);
+        ItemList.setVisible(false);
+        Transactions.setVisible(false);
+        Logs.setVisible(false);
+        Accounts.setVisible(false);
+        Report.setVisible(false);
+        p_id.setText("[Click To Auto Generate ID]");
+        p_add.setText("Add");
+        pnl_cat_sel.setVisible(false);
+        Supplier.setVisible(false);
+    }//GEN-LAST:event_backMouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        new Supplier().setVisible(true);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel150MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel150MouseClicked
+        supplierCount();
+        refresh_suppliers();
+    }//GEN-LAST:event_jLabel150MouseClicked
+
+    private void jLabel158MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel158MouseClicked
+           if (acctype.getText().equals("User")){
+       
+        JOptionPane.showMessageDialog(null, "Invalid User Access!!");
+        }else{
+        refresh_suppliers();
+        login.setVisible(false);
+        Sales.setVisible(false);
+        Stocks.setVisible(false);
+        ItemList.setVisible(false);
+        Transactions.setVisible(false);
+        Logs.setVisible(false);
+        Accounts.setVisible(false);
+        Report.setVisible(false);
+        addaccount.setVisible(false);
+        accountlist.setVisible(false);
+        Supplier.setVisible(true);
+        supplierCount();
+         pnl_supp_update.setVisible(false);
+        back.setVisible(false);
+        }
+    }//GEN-LAST:event_jLabel158MouseClicked
+
+    private void jLabel156MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel156MouseClicked
+        try{
+        if(p_mes_header.getText().equals("Product Name")){
+       
+                jComboBox1.removeAllItems();
+                String sql="SELECT ProductName FROM tbl_name";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                String name =rs.getString("ProductName");
+                jComboBox1.addItem(name);
+                }
+       }else if(p_mes_header.getText().equals("Product Description")){
+       
+                jComboBox1.removeAllItems();
+                String sql="SELECT ProductDescription FROM tbl_description ";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                String name =rs.getString("ProductDescription");
+                jComboBox1.addItem(name);
+                }
+       }else if(p_mes_header.getText().equals("Product Category")){
+       
+                jComboBox1.removeAllItems();
+                String sql="SELECT ProductCategory FROM tbl_category ";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                String name =rs.getString("ProductCategory");
+                jComboBox1.addItem(name);
+                }
+       }else{
+          jComboBox1.removeAllItems();
+         refresh_supplier();
+       }
+         }catch(SQLException e){JOptionPane.showMessageDialog(null,e);}
+    }//GEN-LAST:event_jLabel156MouseClicked
+
+    private void jLabel162MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel162MouseClicked
+         new newcustomer().setVisible(true);
+    }//GEN-LAST:event_jLabel162MouseClicked
+
+    private void jLabel159MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel159MouseClicked
+       customerCount();
+       refresh_customerlist();
+    }//GEN-LAST:event_jLabel159MouseClicked
+
+    private void cus_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cus_searchKeyReleased
+        try {
+                String sql = "SELECT * FROM tbl_customer WHERE "
+                + "CustomerID like ? or Fullname like ? or Street like ? or Contact like ? or Email like ? "
+                + "or CustomerStatus like ? or CommitmentStatus like ? ";
+                pst = (com.mysql.jdbc.PreparedStatement) (java.sql.PreparedStatement) conn.prepareStatement(sql);
+                pst.setString(1, "%" + cus_search.getText() + "%");
+                pst.setString(2, "%" + cus_search.getText() + "%");
+                pst.setString(3, "%" + cus_search.getText() + "%");
+                pst.setString(4, "%" + cus_search.getText() + "%");
+                pst.setString(5, "%" + cus_search.getText() + "%");
+                pst.setString(6, "%" + cus_search.getText() + "%");
+                pst.setString(7, "%" + cus_search.getText() + "%");
+                rs = (ResultSet) pst.executeQuery();
+                tbl_supplier.setModel(DbUtils.resultSetToTableModel(rs));
+            } catch (SQLException ex) {
+                JOptionPane.showConfirmDialog(null, ex);
+            }
+    }//GEN-LAST:event_cus_searchKeyReleased
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void tab_poMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_poMouseClicked
+         diable_fields();
+    }//GEN-LAST:event_tab_poMouseClicked
+    public void diable_fields(){
+    prdes.setEditable(false);    
+    prdeldate.setEnabled(false);    
+    prauto.setEditable(false);    
+    prpayment.setEditable(false);  
+    
+    prvendor.setEnabled(false);
+     prvendorid.setEditable(false); 
+     praddress.setEditable(false); 
+     prcontact.setEditable(false); 
+     pdemail.setEditable(false); 
+    }
     public void category_drop(){
         try{
             if (jLabel94.getText().equals("")){
@@ -9297,6 +9975,7 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JComboBox atype;
     private javax.swing.JButton auclear;
     private javax.swing.JButton aupdate;
+    private javax.swing.JLabel back;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JPasswordField ccpass;
@@ -9333,6 +10012,7 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JTextField cus_id;
     private javax.swing.JTextField cus_name;
     private javax.swing.JCheckBox cus_regular;
+    private javax.swing.JTextField cus_search;
     private javax.swing.JTextField cus_street;
     private javax.swing.JCheckBox cus_walkin;
     private javax.swing.JPanel customer;
@@ -9388,6 +10068,8 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JCheckBox jCheckBox2;
     public final javax.swing.JComboBox jComboBox1 = new javax.swing.JComboBox();
     private javax.swing.JComboBox jComboBox2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -9445,32 +10127,61 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel150;
     private javax.swing.JLabel jLabel151;
     private javax.swing.JLabel jLabel152;
     private javax.swing.JLabel jLabel153;
     private javax.swing.JLabel jLabel154;
     private javax.swing.JLabel jLabel155;
+    private javax.swing.JLabel jLabel156;
     private javax.swing.JLabel jLabel157;
     private javax.swing.JLabel jLabel158;
+    private javax.swing.JLabel jLabel159;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel160;
     private javax.swing.JLabel jLabel161;
+    private javax.swing.JLabel jLabel162;
     private javax.swing.JLabel jLabel163;
+    private javax.swing.JLabel jLabel164;
     private javax.swing.JLabel jLabel165;
     private javax.swing.JLabel jLabel167;
     private javax.swing.JLabel jLabel168;
+    private javax.swing.JLabel jLabel169;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel170;
     private javax.swing.JLabel jLabel171;
+    private javax.swing.JLabel jLabel172;
+    private javax.swing.JLabel jLabel173;
     private javax.swing.JLabel jLabel174;
     private javax.swing.JLabel jLabel176;
     private javax.swing.JLabel jLabel177;
     private javax.swing.JLabel jLabel178;
     private javax.swing.JLabel jLabel179;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel182;
+    private javax.swing.JLabel jLabel183;
+    private javax.swing.JLabel jLabel184;
+    private javax.swing.JLabel jLabel185;
+    private javax.swing.JLabel jLabel186;
+    private javax.swing.JLabel jLabel187;
+    private javax.swing.JLabel jLabel188;
+    private javax.swing.JLabel jLabel189;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel190;
+    private javax.swing.JLabel jLabel191;
+    private javax.swing.JLabel jLabel192;
+    private javax.swing.JLabel jLabel193;
+    private javax.swing.JLabel jLabel194;
+    private javax.swing.JLabel jLabel195;
+    private javax.swing.JLabel jLabel196;
+    private javax.swing.JLabel jLabel197;
+    private javax.swing.JLabel jLabel198;
+    private javax.swing.JLabel jLabel199;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel201;
+    private javax.swing.JLabel jLabel202;
+    private javax.swing.JLabel jLabel203;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -9587,7 +10298,13 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
+    private javax.swing.JPanel jPanel43;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -9601,7 +10318,12 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane21;
+    private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -9618,11 +10340,16 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
+    private javax.swing.JTable jTable7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JPanel login;
@@ -9637,7 +10364,6 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JLabel nq3;
     private javax.swing.JButton p_add;
     public static javax.swing.JTextField p_cat;
-    private javax.swing.JCheckBox p_cb;
     private javax.swing.JButton p_clear;
     private javax.swing.JTextField p_des;
     private javax.swing.JTextField p_id;
@@ -9647,11 +10373,12 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JTextField p_org;
     private javax.swing.JTextField p_quan;
     private javax.swing.JTextField p_sale;
-    private javax.swing.JComboBox<String> p_sup;
+    private javax.swing.JTextField p_sup;
     private javax.swing.JTextField p_val;
     private java.awt.Panel panel1;
     private javax.swing.JLabel password;
     private javax.swing.JLabel password1;
+    private javax.swing.JTextField pdemail;
     private javax.swing.JPanel pnl_accounts;
     private java.awt.Panel pnl_cat_search;
     private java.awt.Panel pnl_cat_sel;
@@ -9666,7 +10393,29 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JPanel pnl_stock;
     private java.awt.Panel pnl_supp_update;
     private javax.swing.JPanel pnl_transactions;
+    private javax.swing.JLabel pradd;
+    private javax.swing.JTextField praddress;
+    private javax.swing.JTextField pramount;
+    private javax.swing.JTextField prauto;
+    private javax.swing.JButton prclose;
+    private javax.swing.JTextField prcontact;
+    private javax.swing.JTextField prcost;
     private javax.swing.JLabel prd_count;
+    private javax.swing.JTextField prdate;
+    private com.toedter.calendar.JDateChooser prdeldate;
+    private javax.swing.JTextArea prdes;
+    private javax.swing.JComboBox pritemcat;
+    private javax.swing.JComboBox pritemdes;
+    private javax.swing.JComboBox pritemname;
+    private javax.swing.JTextField prnum;
+    private javax.swing.JTextField prpayment;
+    private javax.swing.JTable prtable;
+    private javax.swing.JTextField prtotalcost;
+    private javax.swing.JTextField prunit;
+    private javax.swing.JButton prupodate;
+    private javax.swing.JComboBox prvendor;
+    private javax.swing.JTextField prvendorid;
+    private javax.swing.JButton prvoid;
     private javax.swing.JPasswordField pword;
     private javax.swing.JComboBox q1;
     private javax.swing.JComboBox q2;
@@ -9703,6 +10452,7 @@ panel.setBackground(new java.awt.Color(255,255,255));
     private javax.swing.JTextField supp_contact;
     private javax.swing.JTextField supp_name;
     private javax.swing.JTextField supp_search;
+    private javax.swing.JTabbedPane tab_po;
     private javax.swing.JTable tbl_admin;
     private javax.swing.JTable tbl_cashier;
     private javax.swing.JTable tbl_cus;
