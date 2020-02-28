@@ -661,7 +661,8 @@ try{
                             //adding admin history
                  try{
                  String sql1 = "Insert into tbl_login_history (AccountID, Name, Username, Type, DateLogin, TimeLogin) values (?,?,?,?,?,?)";
-               
+                Date d = new Date();
+               SimpleDateFormat s = new SimpleDateFormat("h:mm:ss"); 
                pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement(sql1);
                
                pst.setString(1, add3);
@@ -778,7 +779,8 @@ try{
             //adding admin history
                  try{
                  String sql2 = "Insert tbl_login_history (AccountID, Name, Username, Type, DateLogin, TimeLogin) values (?,?,?,?,?,?)";
-               
+                Date d = new Date();
+               SimpleDateFormat s = new SimpleDateFormat("h:mm:ss"); 
                pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement(sql2);
                
                pst.setString(1, add3);
@@ -5625,7 +5627,7 @@ try{
             manageacc.setVisible(true);
             Supplier.setVisible(false);
             customer.setVisible(false);
-            pnl_dashboard.setVisible(false);
+            dashboard.setVisible(false);
 
             resetColor_manage(pnl_stock);
             resetColor_manage(pnl_sales);
@@ -5659,12 +5661,31 @@ try{
         int p = JOptionPane.showOptionDialog(frame.getContentPane(),"Countinue logout account?","Logout", 0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
          
         if(p==0){
-            pnl_hide();
-            txtusername.setText("");
-            txtpassword.setText("");
-            user.setText("--------------------");
-            accid.setText("--------------------");
-            acctype.setText("--------------------");
+            
+//             try {
+//                   pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_login_history WHERE AccountID = '" + accid.getText() + "'");
+//            rs = pst.executeQuery();
+//            if (rs.next()) {
+//                 Date d = new Date();
+//               SimpleDateFormat s = new SimpleDateFormat("h:mm:ss"); 
+//                 String time = rs.getString("TimeLogin");
+//                String date = rs.getString("DateLogin");
+//                String aid = rs.getString("AccountID");
+//                        pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("UPDATE tbl_login_history SET  TimeLogout=? WHERE TimeLogin='" + time + "' and AccountID = '"+aid+"' and DateLogin='" + date + "'");
+//                        pst.setString(1, s.format(d));
+//                        int update = pst.executeUpdate();
+//                        if (update != 0) {
+                            pnl_hide();
+                            txtusername.setText("");
+                            txtpassword.setText("");
+                            user.setText("--------------------");
+                            accid.setText("--------------------");
+                            acctype.setText("--------------------");
+//                        }
+//            //}
+//                    } catch(SQLException ex){
+//                        JOptionPane.showConfirmDialog(null, ex);
+//                    }
         }
         else{
             frame.dispose();
@@ -7160,7 +7181,7 @@ try{
                         p_image.setText("");
 
                     }else{
-                        JOptionPane.showMessageDialog(null,"No Image Data!!");
+                        //JOptionPane.showMessageDialog(null,"No Image Data!!");
                          p_image.setText(null);
                         p_image.setText("Select Image");
                         
@@ -7184,7 +7205,7 @@ try{
                         
                     }
                 }catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null,"No Image Data!!");
+                    //JOptionPane.showMessageDialog(null,"No Image Data!!");
                      p_image.setText(null);
                         p_image.setText("Select Image");
                         
@@ -7854,8 +7875,29 @@ try{
     }//GEN-LAST:event_supp_searchKeyReleased
 
     private void jLabel57MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel57MouseClicked
-        // TODO add your handling code here:
+////       if (acctype.getText().equals("--------------------")){
         System.exit(1);
+//       }else{
+//        try {
+//                   pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("SELECT * FROM tbl_login_history WHERE AccountID = '" + accid.getText() + "'");
+//            rs = pst.executeQuery();
+//            if (rs.next()) {
+//                 Date d = new Date();
+//               SimpleDateFormat s = new SimpleDateFormat("h:mm:ss"); 
+//                String time = rs.getString("TimeLogin");
+//                String date = rs.getString("DateLogin");
+//                String aid = rs.getString("AccountID");
+//                        pst = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement("UPDATE tbl_login_history SET  TimeLogout=? WHERE TimeLogin='" + time + "' and AccountID = '"+aid+"' and DateLogin='" + date + "'");
+//                        pst.setString(1, s.format(d));
+//                        int update = pst.executeUpdate();
+//                        if (update != 0) {
+                            System.exit(1);
+//                        }
+//            }
+//                    } catch(SQLException ex){
+//                        JOptionPane.showConfirmDialog(null, ex);
+//                    }
+////       }
     }//GEN-LAST:event_jLabel57MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
