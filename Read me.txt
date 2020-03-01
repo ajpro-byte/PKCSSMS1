@@ -1,0 +1,8 @@
+-copy the folder named InventorySytemReport to C:\Program Files for jasper report files purpose
+-create shortcut exe file icon from dist folder
+-import database from folder named "Dump20200217(new update feb 17)"
+-note: use 3307 port for importing schema/Database "db_inventory"
+
+-For further questions please contact system developer.
+
+Thanks,
